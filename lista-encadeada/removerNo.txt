@@ -1,0 +1,23 @@
+Lista *removerNo(Lista *list, int valorNo){
+	if(list == NULL){
+		printf('Lista vazia');
+		return NULL;
+	}	
+	Lista *atual = list;
+	Lista *anterior = NULL;
+	while(atual != NULL && atual->conteudo != valorNo){
+		anterior = atual;
+		atual = atual->proximo;
+	}
+	if(atual == NULL){
+		printf('Valor nao encontrado');
+		return list;
+	}
+	if(anterior == NULL){
+		list = atual->proximo;
+		return list;
+	}else{
+		anterior->proximo = atual->proximo;
+		return list;
+	}
+}
