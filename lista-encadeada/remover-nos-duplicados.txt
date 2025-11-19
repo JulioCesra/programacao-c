@@ -1,0 +1,22 @@
+Lista *removerDuplicadas(Lista *list){
+    if(list == NULL){
+        return;
+    }
+    Lista *atual = list;
+    while(atual != NULL){
+        Lista *anterior = atual;
+        Lista *posterior = atual->prox;
+        while(posterior != NULL){
+            if(atual->cont == posterior->cont){
+                anterior->prox = posterior->prox;
+                Lista *removerNo = posterior;
+                posterior = anterior->prox;
+            }else{
+                anterior = posterior;
+                posterior = posterior->prox;
+            }
+        }
+        atual = atual->prox;
+    }
+    return list;
+}
